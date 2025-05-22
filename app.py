@@ -10,10 +10,10 @@ app.secret_key = 'your_secret_key_here'
 
 def get_db_connection():
     return pymysql.connect(
-        host='localhost',
-        user='root',
-        password='Address@2025',
-        database='inventory',
+        host='yourhost',
+        user='username',
+        password='yourpassword',
+        database='db_name',
         cursorclass=DictCursor
     )
 
