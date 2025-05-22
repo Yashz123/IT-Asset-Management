@@ -1,0 +1,6 @@
+flask
+flask-mysqldb
+flask-login
+pandas
+openpyxl
+xls writer
