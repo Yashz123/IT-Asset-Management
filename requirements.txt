@@ -1,6 +1,6 @@
 flask
-flask-mysqldb
-flask-login
+mysql-connector-python
+mysqlclient
 pandas
 openpyxl
-xls writer
+xlsxwriter
