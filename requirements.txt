@@ -4,3 +4,4 @@ mysqlclient
 pandas
 openpyxl
 xlsxwriter
+pymysql
