@@ -7,10 +7,10 @@ df = pd.read_excel(excel_file)
 
 # Connect to MySQL
 conn = MySQLdb.connect(
-    host="localhost",
-    user="root",
-    passwd="Address@2025",
-    db="inventory"
+    host="hostname",
+    user="user",
+    passwd="yourpassword",
+    db="db_name"
 )
 cursor = conn.cursor()
 
