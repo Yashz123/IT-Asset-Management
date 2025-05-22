@@ -1,0 +1,351 @@
+<style>
+    .header-bar {
+        background-color: navy;
+        color: white;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-radius: 0 0 10px 10px;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        /* Make sure header stays fixed and does NOT scroll horizontally */
+       
+       
+    }
+    header-bar img {
+    height: 50px;
+}
+
+.heading {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 24px;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px; /* space between the buttons */
+}
+
+button {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.create-btn {
+    background-color: green;
+    color: white;
+    border-radius: 8px;
+    font-weight: bold;
+    font-family: system-ui;
+}
+
+.create-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }  
+
+.logout-btn {
+    background-color: grey;
+    color: white;
+    border-radius: 8px;
+    font-weight: bold;
+    font-family: system-ui;
+}
+
+.logout-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }  
+
+    .filter-bar {
+        margin-top: 20px;
+        display: flex;
+        gap: 10px;
+    }
+    .filter-input {
+        flex: 1;
+        padding: 8px 12px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        font-size: 1rem;
+    }
+    .filter-btn {
+        background-color: navy;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        padding: 8px 20px;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        font-weight: bold;
+        font-family: system-ui;
+    }
+
+    .filter-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }  
+    .export-btn {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-weight: bold;
+    font-family: system-ui;
+}
+
+.export-btn:hover {
+    background-color: darkgreen;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+ .Add-btn {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-weight: bold;
+    font-family: system-ui;
+}
+
+.Add-btn:hover {
+    background-color: darkgreen;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+    
+    .asset-count {
+        margin-top: 15px;
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+    .table-container {
+        margin-top: 20px;
+        border: 1px solid black;
+        border-radius: 10px;
+        overflow-x: auto;
+        overflow-y: auto;
+        width: 100%;
+        max-height: 450px;
+       
+        
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        min-width: 1400px; /* ensure table is wide enough for columns */
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        
+        
+        
+    }
+   
+    th, td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid black;
+        border-right: 1px solid black;
+        white-space: nowrap; /* prevent text wrap for clarity */
+    }
+    th:last-child, td:last-child {
+        border-right: none;
+    }
+    th {
+        background-color: navy;
+        color: white;
+        font-weight: bold;
+    }
+    /* Make columns wider */
+    th:nth-child(1), td:nth-child(1) { width: 70px; }   /* Sr no. */
+    th:nth-child(2), td:nth-child(2) { width: 140px; }  /* Allocated To */
+    th:nth-child(3), td:nth-child(3) { width: 110px; }  /* Make */
+    th:nth-child(4), td:nth-child(4) { width: 110px; }  /* Model */
+    th:nth-child(5), td:nth-child(5) { width: 110px; }  /* Model No */
+    th:nth-child(6), td:nth-child(6) { width: 130px; }  /* Service Tag */
+    th:nth-child(7), td:nth-child(7) { width: 130px; }  /* Department */
+    th:nth-child(8), td:nth-child(8) { width: 130px; }  /* Office Asset Tag */
+    th:nth-child(9), td:nth-child(9) { width: 130px; }  /* Host Name */
+    th:nth-child(10), td:nth-child(10) { width: 130px; } /* IP Address */
+    th:nth-child(11), td:nth-child(11) { width: 110px; } /* Asset Status */
+    th:nth-child(12), td:nth-child(12) { width: 110px; } /* Asset Type */
+    th:nth-child(13), td:nth-child(13) { width: 140px; } /* Asset Description */
+    th:nth-child(14), td:nth-child(14) { width: 110px; } /* Warranty Status */
+    th:nth-child(15), td:nth-child(15) { width: 120px; } /* Warranty Date */
+    th:nth-child(16), td:nth-child(16) { width: 160px; } /* Functional Manager */
+    th:nth-child(17), td:nth-child(17) { width: 140px; } /* Designation */
+    th:nth-child(18), td:nth-child(18) { width: 110px; } /* Site */
+    th:nth-child(19), td:nth-child(19) { width: 80px; }  /* Floor */
+    th:nth-child(20), td:nth-child(20) { width: 120px; } /* Workstation No */
+    th:nth-child(21), td:nth-child(21) { width: 110px; } /* Category */
+    th:nth-child(22), td:nth-child(22) { width: 140px; } /* Actions */
+
+    .btn-edit {
+        background-color: navy;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 6px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        font-weight: bold;
+        font-family: system-ui;
+    }
+    .btn-edit:hover {
+        background-color: navy;
+        transform: scale(1.05);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .btn-delete {
+        background-color: #dc3545;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 6px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        font-weight: bold;
+        font-family: system-ui;
+        
+    }
+    .btn-delete:hover {
+        background-color: #b02a37;
+        transform: scale(1.05);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .heading {
+          font-family: system-ui;
+          font-size:30px;
+    }
+
+    
+   
+</style>
+<body style="background-color:rgb(196, 218, 217);">
+
+<div class="header-bar">
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="Company Logo">
+    <h1 class="heading">IT Asset Management</h1>
+
+    <div class="button-group">
+        {% if session['role'] == 'admin' %}
+          <a href="/create_user"><button class="create-btn">Create New User</button></a>
+          <a href="/manage_users"><button class="create-btn">Manage Users</button></a>
+        {% endif %}
+        <a href="/logout"><button class="logout-btn" onclick="return confirmLogout();">Logout</button></a>
+    </div>
+</div>
+
+<div class="container mt-4">
+    <div class="asset-count">Total Assets: {{ asset_count }}</div>
+
+    <form method="GET" action="/dashboard" class="filter-bar">
+        <input type="text" name="search" placeholder="Filter by - Allocated To, Department, Make, Model, Asset Type, Site, Category, Asset Status, Floor" class="filter-input" value="{{ request.args.get('search', '') }}" >
+        <button type="submit" class="filter-btn">Apply Filter</button>
+    </form>
+
+    <div>
+     <a href="{{ url_for('export_excel', search=request.args.get('search', '')) }}" class="export-btn">Export Excel</a>
+     <a href="/add" class="Add-btn">Add New Asset</a>
+   </div>
+     
+   
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Sr no.</th>
+                   <!-- <th>ID</th> -->
+                    <th>Allocated To</th>
+                    <th>Make</th>
+                    <th>Model</th>
+                    <th>Model No</th>
+                    <th>Service Tag</th>
+                    <th>Department</th>
+                    <th>Office Asset Tag</th>
+                    <th>Host Name</th>
+                    {% if session.get('role') == 'admin' %}
+                    <th>IP Address</th>
+                    {% endif %}
+                    <th>Asset Status</th>
+                    <th>Asset Type</th>
+                    <th>Asset Description</th>
+                    <th>Warranty Status</th>
+                    <th>Warranty Date</th>
+                    <th>Functional Manager</th>
+                    <th>Designation</th>
+                    <th>Site</th>
+                    <th>Floor</th>
+                    <th>Workstation No</th>
+                    <th>Category</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for asset in assets %}
+               <tr>
+                    <td>{{ loop.index }}</td>
+                    <!-- <td>{{ asset['id'] }}</td> -->
+                    <td>{{ asset['allocated_to'] }}</td>
+                    <td>{{ asset['make'] }}</td>
+                    <td>{{ asset['model'] }}</td>
+                    <td>{{ asset['model_no'] }}</td>
+                    <td>{{ asset['service_tag'] }}</td>
+                    <td>{{ asset['department'] }}</td>
+                    <td>{{ asset['office_asset_tag'] }}</td>
+                    <td>{{ asset['host_name'] }}</td>
+                    {% if session.get('role') == 'admin' %}
+                    <td>{{ asset['ip_address'] }}</td>
+                    {% endif %}
+                    <td>{{ asset['asset_status'] }}</td>
+                    <td>{{ asset['asset_type'] }}</td>
+                    <td>{{ asset['asset_description'] }}</td>
+                    <td>{{ asset['warranty_status'] }}</td>
+                    <td>{{ asset['warranty_date'] }}</td>
+                    <td>{{ asset['functional_manager'] }}</td>
+                    <td>{{ asset['designation'] }}</td>
+                    <td>{{ asset['site'] }}</td>
+                    <td>{{ asset['floor'] }}</td>
+                    <td>{{ asset['workstation_no'] }}</td>
+                    <td>{{ asset['category'] }}</td>
+                    <td>
+                         <a href="/edit/{{ asset['id'] }}" class="btn-edit">Edit</a>
+                         {% if session.get('role') == 'admin' %}
+                            <form action="/delete/{{ asset.id }}" method="POST" style="display:inline;" onsubmit="return confirm('Are you sure you want to delete this asset?');">
+                                 <button type="submit" class="btn-delete">Delete</button>
+                            </form>
+                         {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+<script>
+    
+
+    function confirmLogout() {
+        return confirm("Are you sure you want to Logout?");
+    }
+
+    
+</script>
+
